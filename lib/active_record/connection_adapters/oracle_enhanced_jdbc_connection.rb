@@ -296,7 +296,9 @@ module ActiveRecord
       end
 
       def prepare(sql)
-        Cursor.new(self, @raw_connection.prepareStatement(sql))
+        with_retry do
+          Cursor.new(self, @raw_connection.prepareStatement(sql))
+        end
       end
 
       class Cursor
