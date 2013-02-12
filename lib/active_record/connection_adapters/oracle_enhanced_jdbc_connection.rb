@@ -407,7 +407,6 @@ module ActiveRecord
             @raw_statement.close
           rescue Exception => e
             $stderr.puts e
-            $stderr.puts "Error in close: #{error_code(e)} "
           end
         end
 
